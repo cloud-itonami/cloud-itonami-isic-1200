@@ -130,9 +130,13 @@
                           :batch-quantity 50000
                           :ingredients-list ["tobacco" "paper"]
                           :facility-permit-valid? true
-                          :compliance-concern-raised? false}}})
-          request {:op :log-production-batch :subject "batch-1" :stake :log-production-batch}
-          proposal {:cites ["JT-1200-001"] :value {:jurisdiction "JP"} :confidence 0.85}
+                          :compliance-concern-raised? false
+                          :jurisdiction "JP"
+                          :evidence-checklist [:batch-manifest :ingredient-declaration
+                                               :packaging-label-draft :facility-registration
+                                               :production-log :shipment-authorization]}}})
+          request {:op :log-production-batch :subject "batch-1"}
+          proposal {:cites ["JT-1200-001"] :value {:jurisdiction "JP"} :confidence 0.85 :stake :log-production-batch}
           verdict (governor/check request {} proposal st)]
       (is (not (:ok? verdict)))  ; high-stakes always escalates
       (is (:escalate? verdict))  ; but escalate, not hold

@@ -8,7 +8,8 @@
   CRITICAL: This actor NEVER certifies health warnings, excise tax compliance,
   or marketing claims. Those require licensed compliance officer sign-off.
   This namespace supports coordination only."
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.set]))
 
 (def jurisdictions
   "Tobacco manufacturing jurisdictions and their regulatory/excise-tax
