@@ -21,7 +21,7 @@
     (store/update-batch
      store batch-id
      {:production-logged? true
-      :logged-at (str (js/Date.))}
+      :logged-at #?(:clj (str (java.time.Instant/now)) :cljs (str (js/Date.)))}
      {:t :operation-log-production-batch
       :subject batch-id
       :details details})
@@ -46,7 +46,7 @@
     (store/update-batch
      store batch-id
      {:shipment-finalized? true
-      :finalized-at (str (js/Date.))}
+      :finalized-at #?(:clj (str (java.time.Instant/now)) :cljs (str (js/Date.)))}
      {:t :operation-coordinate-shipment
       :subject batch-id
       :shipment-details details})
