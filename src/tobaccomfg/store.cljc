@@ -43,3 +43,25 @@
   "Retrieve the audit log from the store."
   [store]
   (:audit-log @store []))
+
+(defn ledger
+  "Alias for `get-audit-log` — matches the flagship render-html convention
+  used across the cloud-itonami fleet (`store/ledger`)."
+  [store]
+  (get-audit-log store))
+
+(defn all-batches
+  "Return every batch record currently in the store, each with its
+  `:id` key set from the store map key. Order is stable by id string."
+  [store]
+  (->> (:batches @store)
+       (map (fn [[id rec]] (assoc rec :id id)))
+       (sort-by :id)
+       vec))
+
+(defn append-audit!
+  "Append a decision/audit fact without mutating batch records.
+  Used by the governor hold / escalate paths that have no batch patch."
+  [store fact]
+  (swap! store update :audit-log (fnil conj []) fact)
+  fact)
