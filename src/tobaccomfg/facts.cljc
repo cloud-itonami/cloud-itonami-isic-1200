@@ -55,7 +55,7 @@
   authority facts this actor coordinates around. They are not, and must not
   be read as, certification of health-warning or excise compliance -- see
   the CRITICAL note above."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.set]))
 
 (def jurisdictions
