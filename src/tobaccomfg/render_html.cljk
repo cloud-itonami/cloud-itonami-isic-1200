@@ -22,7 +22,7 @@
   separate maturity step (README still correctly claims `:blueprint`
   maturity for the LLM advisor half).
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [jp-go-dds.skin]
             [kotoba.lang.text :as str]

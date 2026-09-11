@@ -1,6 +1,6 @@
 (ns tobaccomfg.sim
   "Tobacco manufacturing simulation driver for local testing.
-  clojure -M:dev:run to execute."
+  kbb -M:dev:run to execute."
   (:require [tobaccomfg.store :as store]
             [tobaccomfg.governor :as governor]
             [tobaccomfg.operation :as operation]))
