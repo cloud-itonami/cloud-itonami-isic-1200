@@ -1,5 +1,5 @@
 (ns tobaccomfg.registry-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [tobaccomfg.registry :as registry]))
 
 (deftest batch-already-logged?
