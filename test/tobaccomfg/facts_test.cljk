@@ -1,5 +1,5 @@
 (ns tobaccomfg.facts-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [tobaccomfg.facts :as facts]))
 
 (deftest jurisdiction-by-id
