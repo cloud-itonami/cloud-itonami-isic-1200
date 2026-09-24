@@ -56,7 +56,7 @@
   be read as, certification of health-warning or excise compliance -- see
   the CRITICAL note above."
   (:require [kotoba.lang.text :as str]
-            [clojure.set]))
+            [kotoba.lang.coll]))
 
 (def jurisdictions
   "Tobacco manufacturing jurisdictions and their regulatory/excise-tax
@@ -141,7 +141,7 @@
       false
       (let [required (set (:required-evidence j))
             present (set checklist)]
-        (clojure.set/subset? required present)))))
+        (kotoba.lang.coll/subset? required present)))))
 
 (def product-categories
   "Valid tobacco product categories for tracking and regulatory compliance."
